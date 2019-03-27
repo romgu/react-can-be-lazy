@@ -1,7 +1,7 @@
 import React, { Component, Suspense } from 'react';
 import './App.css';
 import Page1 from './Components/Page1'
-const LazyPage1 = React.lazy(() => import('./Components/Page1'));
+// const LazyPage1 = React.lazy(() => import('./Components/Page1'));
 const LazyPage2 = React.lazy(() => import('./Components/Page2'));
 const LazyPage3 = React.lazy(() => import('./Components/Page3'));
 
@@ -23,13 +23,13 @@ class App extends Component {
       ) 
     } else if (this.state.route === 'page2') {
       return (
-          <Suspense fallback={<div style={{textAlign:'center'}}>Loading...</div>}>
+          <Suspense fallback={<div className='Loading'><h1>Loading...</h1></div>}>
             <LazyPage2 onRouteChange={this.onRouteChange} />
           </Suspense> 
       )
     } else if (this.state.route === 'page3') {
       return (
-          <Suspense fallback={<div style={{textAlign:'center'}}>Loading...</div>}>
+          <Suspense fallback={<div className='Loading'><h1>Loading...</h1></div>}>
             <LazyPage3 onRouteChange={this.onRouteChange} />
           </Suspense> 
       )
